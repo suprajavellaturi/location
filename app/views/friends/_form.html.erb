@@ -1,0 +1,42 @@
+<%= form_for @friend, url: friends_path, html: { multipart: true } do |form| %>
+  <% if @friend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+      <% @friend.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :firstname %><br />
+    <%= form.text_field :firstname %>
+   </div>
+<div class="field">
+    <%= form.label :lastname %><br />
+    <%= form.text_field :lastname %>
+   </div>
+<div class="field">
+    <%= form.label :phone %><br />
+    <%= form.text_field :phone %>
+   </div>
+<div class="field">
+    <%= form.label :email %><br />
+    <%= form.text_field :email %>
+   </div>
+<div class="field">
+    <%= form.label :imei %><br />
+    <%= form.text_field :imei %>
+   </div>
+   <div class="field">
+    <%= form.label :image %><br />
+    <%= form.file_field :image %>
+   </div>
+   
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
